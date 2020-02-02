@@ -21,6 +21,8 @@ class App extends React.Component {
       this.RightSlide.classList.remove('left');
       this.RightSlide.classList.add('right');
     }
+
+    this.setState((prevState) => ({ isLoginActive: !prevState.isLoginActive }));
   }
 
   render() {
@@ -30,11 +32,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="login">
-          <div className="container">
-            {isLoginActive && <Login containerRef={(ref) => this.current = ref} />}
-            {!isLoginActive && <Register containerRef={(ref) => this.current = ref} />}
+          <div className="container" ref={ref => (this.container = ref)}>
+            {isLoginActive && <Login containerRef={(ref) => (this.current = ref)} />}
+            {!isLoginActive && <Register containerRef={(ref) => (this.current = ref)} />}
           </div>
-          <RightSlide current={current} containerRef={ref => this.RightSlide = ref} onClick={this.changeState.bind(this)} />
+          <RightSlide current={current} currentActive={currentActive} containerRef={ref => this.RightSlide = ref} onClick={this.changeState.bind(this)} />
         </div>
       </div>
     );

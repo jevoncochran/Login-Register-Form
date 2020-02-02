@@ -5,7 +5,7 @@ export class Login extends React.Component {
     constructor(props) {
         super(props);
     }
-    
+
     render() {
         return (
             <div className="base-container" ref={this.props.containerRef}>
@@ -23,10 +23,8 @@ export class Login extends React.Component {
                             <label htmlFor="password">Password</label>
                             <input type="password" name="password" placeholder="password" />
                         </div>
+                        <button className="btn" type="button">Login</button>
                     </div>
-                </div>
-                <div className="footer">
-                    <button className="btn" type="button">Login</button>
                 </div>
             </div>
         )
